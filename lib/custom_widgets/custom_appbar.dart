@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/custom_widgets/add_note_widget.dart';
 
 class NotesAppBar extends StatelessWidget implements PreferredSizeWidget {
   const NotesAppBar({Key? key}) : super(key: key);
@@ -33,7 +34,13 @@ class NotesAppBar extends StatelessWidget implements PreferredSizeWidget {
             shape: BoxShape.circle,
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                context: context,
+                builder: (context) => const AddNoteWidget(),
+              );
+            },
             icon: const Icon(
               Icons.add,
               size: 30,
