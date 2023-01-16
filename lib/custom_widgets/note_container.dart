@@ -14,7 +14,7 @@ class NoteContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       width: double.infinity,
-      height: 260,
+      height: 220,
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
