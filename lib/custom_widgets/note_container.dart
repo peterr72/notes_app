@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/views/edit_note/edit_note_view.dart';
 
 class NoteContainer extends StatelessWidget {
   const NoteContainer({required this.containerColor, required this.title, required this.desc, required this.time, Key? key}) : super(key: key);
@@ -28,9 +29,22 @@ class NoteContainer extends StatelessWidget {
                   title,
                   style: const TextStyle(fontSize: 25),
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: const Icon(Icons.delete),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Icon(Icons.delete),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, EditNoteView.id);
+                      },
+                      child: const Icon(Icons.edit),
+                    ),
+                  ],
                 ),
               ],
             ),
