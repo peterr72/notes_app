@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes/custom_widgets/add_note_widget.dart';
+import 'package:notes/theme/colors/colors.dart';
+import 'package:notes/theme/spaces/spaces.dart';
 
 class NotesAppBar extends StatelessWidget implements PreferredSizeWidget {
   const NotesAppBar({Key? key}) : super(key: key);
@@ -11,40 +13,28 @@ class NotesAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       elevation: 0,
       title: const Text('Notes'),
-      titleTextStyle: const TextStyle(fontSize: 25),
-      actions: [
-        Container(
-          margin: EdgeInsets.only(right: 12),
-          decoration: const BoxDecoration(
-            color: Colors.white10,
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.search,
-              size: 30,
-            ),
-          ),
+      centerTitle: true,
+      titleTextStyle: Theme.of(context).textTheme.displayMedium!.copyWith(color: MainColors.whiteColor),
+      leading: IconButton(
+        splashRadius: 25,
+        onPressed: () {},
+        icon: const Icon(
+          Icons.info,
         ),
-        Container(
-          margin: const EdgeInsets.only(right: 12),
-          decoration: const BoxDecoration(
-            color: Colors.white10,
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            onPressed: () {
-              showModalBottomSheet(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                context: context,
-                builder: (context) => const AddNoteWidget(),
-              );
-            },
-            icon: const Icon(
-              Icons.add,
-              size: 30,
-            ),
+      ),
+      actions: [
+        IconButton(
+          splashRadius: 25,
+          onPressed: () {
+            showModalBottomSheet(
+              isScrollControlled: true,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(NoteAppSpaces.kBorderRadius)),
+              context: context,
+              builder: (context) => const AddNoteWidget(),
+            );
+          },
+          icon: const Icon(
+            Icons.add,
           ),
         ),
       ],
